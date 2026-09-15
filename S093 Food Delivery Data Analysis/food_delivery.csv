@@ -1,0 +1,151 @@
+Order_ID,Customer,Restaurant,Food_Category,City,Order_Value,Delivery_Time,Rating
+1,Vikas,Spice Hub,Chinese,Bangalore,1333,21,3.0
+2,Priya,Food Corner,Dessert,Pune,220,86,3.7
+3,Riya,Tasty Bites,Dessert,Delhi,241,73,4.7
+4,Vikas,Royal Kitchen,Chinese,Bangalore,730,53,3.6
+5,Aditya,Royal Kitchen,Pizza,Bangalore,1722,50,4.9
+6,Vikas,Cafe Delight,Indian,Nashik,158,50,2.8
+7,Aditya,Royal Kitchen,Pizza,Delhi,1515,90,3.6
+8,Priya,Pizza Point,Dessert,Nashik,814,84,2.9
+9,Rishi,Cafe Delight,Pizza,Mumbai,215,83,3.3
+10,Vikas,Pizza Point,South Indian,Mumbai,456,69,3.9
+11,Sneha,Burger House,Indian,Mumbai,1054,41,5.0
+12,Rishi,Royal Kitchen,Chinese,Bangalore,1062,51,4.2
+13,Kunal,Burger House,Indian,Delhi,1083,58,2.9
+14,Kunal,Burger House,Chinese,Delhi,821,75,3.1
+15,Neha,Spice Hub,Burger,Delhi,646,30,3.2
+16,Rahul,Burger House,Chinese,Bangalore,1529,50,4.3
+17,Aditya,South Indian Cafe,South Indian,Bangalore,278,41,3.7
+18,Priya,Cafe Delight,Pizza,Bangalore,1258,64,3.8
+19,Priya,Burger House,South Indian,Bangalore,352,73,4.6
+20,Aarav,South Indian Cafe,South Indian,Mumbai,253,64,2.7
+21,Riya,South Indian Cafe,Chinese,Pune,1089,75,4.4
+22,Priya,Royal Kitchen,Dessert,Delhi,1988,78,3.6
+23,Neha,Burger House,Dessert,Pune,811,24,4.2
+24,Vikas,South Indian Cafe,Indian,Mumbai,756,75,4.6
+25,Rishi,Food Corner,Indian,Mumbai,1373,90,4.4
+26,Riya,Food Corner,Pizza,Bangalore,439,66,4.0
+27,Rishi,Royal Kitchen,Pizza,Mumbai,1361,44,3.6
+28,Riya,Food Corner,Chinese,Nashik,1629,74,3.6
+29,Neha,Tasty Bites,Burger,Nashik,896,34,4.1
+30,Aarav,Tasty Bites,Chinese,Nashik,986,68,4.7
+31,Rishi,Pizza Point,Chinese,Mumbai,1837,27,3.4
+32,Sneha,South Indian Cafe,Chinese,Pune,1437,56,3.7
+33,Aditya,South Indian Cafe,South Indian,Delhi,978,76,4.1
+34,Sneha,Food Corner,Chinese,Bangalore,1897,81,4.0
+35,Riya,Royal Kitchen,Dessert,Bangalore,1775,41,4.9
+36,Rahul,Pizza Point,South Indian,Delhi,183,61,4.1
+37,Riya,Cafe Delight,South Indian,Delhi,728,43,3.1
+38,Aditya,Pizza Point,South Indian,Mumbai,600,29,4.9
+39,Rishi,South Indian Cafe,South Indian,Mumbai,953,45,3.3
+40,Vikas,Tasty Bites,South Indian,Nashik,1714,61,4.7
+41,Vikas,Spice Hub,Indian,Nashik,899,70,3.3
+42,Kunal,Burger House,Indian,Nashik,1766,64,5.0
+43,Aarav,Royal Kitchen,Indian,Bangalore,1049,64,2.6
+44,Priya,South Indian Cafe,South Indian,Bangalore,1629,76,5.0
+45,Kunal,Royal Kitchen,Chinese,Delhi,1294,85,3.6
+46,Rishi,Pizza Point,Chinese,Pune,234,43,4.1
+47,Rishi,Cafe Delight,Burger,Nashik,920,26,4.0
+48,Kunal,Food Corner,Pizza,Mumbai,1337,42,2.7
+49,Vikas,Royal Kitchen,Pizza,Delhi,1891,25,3.5
+50,Rahul,Pizza Point,Burger,Pune,1156,40,2.9
+51,Priya,Royal Kitchen,Indian,Pune,1856,42,4.0
+52,Rahul,Burger House,South Indian,Bangalore,343,70,4.9
+53,Riya,Tasty Bites,Indian,Bangalore,1628,59,4.3
+54,Neha,Pizza Point,Burger,Nashik,1419,80,4.0
+55,Neha,Food Corner,Indian,Pune,1536,69,4.2
+56,Riya,South Indian Cafe,Indian,Nashik,967,47,3.2
+57,Riya,Tasty Bites,South Indian,Nashik,1237,23,2.7
+58,Aarav,Spice Hub,Dessert,Bangalore,843,42,4.3
+59,Sneha,Royal Kitchen,Dessert,Bangalore,1762,41,2.5
+60,Kunal,Food Corner,Pizza,Pune,654,69,4.0
+61,Vikas,Cafe Delight,South Indian,Mumbai,406,20,2.8
+62,Aarav,Burger House,Indian,Bangalore,288,21,4.2
+63,Kunal,Cafe Delight,Indian,Nashik,497,26,4.3
+64,Vikas,South Indian Cafe,Chinese,Delhi,530,24,3.5
+65,Priya,South Indian Cafe,Dessert,Delhi,1513,29,2.8
+66,Aditya,Burger House,Indian,Bangalore,177,39,3.2
+67,Neha,Food Corner,Pizza,Mumbai,1249,35,3.2
+68,Vikas,Royal Kitchen,Indian,Nashik,681,86,3.6
+69,Neha,Burger House,Dessert,Mumbai,1448,27,4.0
+70,Rishi,Spice Hub,Pizza,Pune,776,73,2.9
+71,Aarav,Royal Kitchen,South Indian,Mumbai,1128,58,3.7
+72,Priya,Burger House,Dessert,Pune,206,71,4.0
+73,Priya,Burger House,Burger,Nashik,1520,80,2.9
+74,Priya,Cafe Delight,Pizza,Bangalore,1587,55,5.0
+75,Priya,Royal Kitchen,Dessert,Nashik,1724,68,2.9
+76,Sneha,Royal Kitchen,Pizza,Mumbai,1087,26,4.2
+77,Neha,Spice Hub,Chinese,Nashik,1739,30,4.8
+78,Aarav,Burger House,Indian,Mumbai,899,75,3.1
+79,Priya,Pizza Point,Indian,Mumbai,900,78,3.6
+80,Kunal,Burger House,Dessert,Bangalore,1262,89,3.0
+81,Rishi,Burger House,Chinese,Pune,1917,85,4.0
+82,Rahul,Tasty Bites,Indian,Nashik,1643,39,4.6
+83,Vikas,Burger House,Indian,Bangalore,1083,31,4.6
+84,Rishi,Spice Hub,Chinese,Pune,1510,41,3.4
+85,Rishi,Tasty Bites,Burger,Delhi,1356,53,2.9
+86,Priya,Cafe Delight,Burger,Delhi,160,61,4.2
+87,Neha,Spice Hub,Chinese,Delhi,1090,41,4.7
+88,Riya,Cafe Delight,Chinese,Mumbai,397,79,2.9
+89,Riya,Cafe Delight,South Indian,Mumbai,164,86,4.6
+90,Neha,Food Corner,South Indian,Bangalore,1991,30,3.6
+91,Riya,Cafe Delight,Chinese,Pune,956,22,3.6
+92,Priya,South Indian Cafe,Dessert,Bangalore,761,39,3.6
+93,Rishi,South Indian Cafe,Chinese,Nashik,1107,71,3.3
+94,Neha,South Indian Cafe,South Indian,Mumbai,1175,89,3.4
+95,Priya,Food Corner,Pizza,Pune,606,67,4.0
+96,Neha,Spice Hub,South Indian,Nashik,1787,24,2.6
+97,Rahul,Food Corner,Pizza,Pune,208,41,3.7
+98,Aarav,Tasty Bites,Indian,Mumbai,440,82,3.6
+99,Sneha,Spice Hub,Chinese,Delhi,680,22,2.9
+100,Aarav,Burger House,Dessert,Pune,384,85,4.3
+101,Priya,Food Corner,Burger,Delhi,1280,74,4.4
+102,Sneha,Food Corner,Chinese,Mumbai,369,81,4.2
+103,Sneha,South Indian Cafe,Dessert,Bangalore,1114,65,2.7
+104,Vikas,Tasty Bites,South Indian,Delhi,740,45,2.5
+105,Vikas,Cafe Delight,Dessert,Mumbai,1712,41,2.9
+106,Priya,Royal Kitchen,Chinese,Mumbai,946,51,4.5
+107,Rishi,Pizza Point,Chinese,Mumbai,1275,52,3.7
+108,Vikas,Pizza Point,Pizza,Pune,497,77,3.5
+109,Neha,Tasty Bites,Dessert,Bangalore,1583,49,3.6
+110,Rishi,Tasty Bites,Dessert,Delhi,1135,36,4.4
+111,Rishi,Spice Hub,Dessert,Nashik,1586,43,3.0
+112,Rahul,Spice Hub,South Indian,Nashik,615,61,3.3
+113,Priya,Burger House,Chinese,Pune,918,71,3.7
+114,Riya,Cafe Delight,South Indian,Nashik,1639,31,3.1
+115,Riya,Pizza Point,Burger,Pune,718,63,4.4
+116,Neha,Royal Kitchen,Pizza,Delhi,1728,36,4.3
+117,Aarav,South Indian Cafe,Dessert,Mumbai,976,22,2.9
+118,Kunal,Cafe Delight,Pizza,Bangalore,1095,28,2.9
+119,Sneha,Food Corner,Pizza,Mumbai,1054,86,4.7
+120,Aarav,Spice Hub,Chinese,Nashik,990,90,3.8
+121,Vikas,Royal Kitchen,Burger,Nashik,427,79,4.3
+122,Sneha,Pizza Point,Burger,Delhi,1486,64,4.3
+123,Neha,Pizza Point,Burger,Bangalore,791,79,3.6
+124,Kunal,Food Corner,Indian,Pune,1287,41,4.6
+125,Priya,Royal Kitchen,Chinese,Delhi,476,60,4.8
+126,Kunal,Spice Hub,Indian,Nashik,496,88,4.8
+127,Kunal,Spice Hub,South Indian,Delhi,872,79,4.4
+128,Aditya,Food Corner,Indian,Pune,1486,65,4.6
+129,Riya,Tasty Bites,Chinese,Nashik,1543,50,3.9
+130,Aditya,Food Corner,Indian,Nashik,1031,63,3.7
+131,Aarav,Royal Kitchen,Burger,Bangalore,1155,56,4.6
+132,Neha,South Indian Cafe,Indian,Delhi,665,80,4.8
+133,Rishi,Cafe Delight,Chinese,Delhi,1542,55,2.8
+134,Riya,Pizza Point,Indian,Delhi,1043,50,2.9
+135,Kunal,Spice Hub,South Indian,Nashik,738,40,3.4
+136,Rishi,Pizza Point,Pizza,Delhi,169,63,4.8
+137,Rishi,South Indian Cafe,Indian,Nashik,1741,81,3.9
+138,Aarav,Food Corner,South Indian,Pune,1217,33,2.9
+139,Aditya,Food Corner,Indian,Bangalore,492,38,3.4
+140,Aarav,South Indian Cafe,Chinese,Bangalore,1394,22,2.6
+141,Vikas,Burger House,Dessert,Delhi,980,44,4.0
+142,Vikas,South Indian Cafe,Chinese,Pune,848,89,3.1
+143,Vikas,Spice Hub,South Indian,Mumbai,1789,38,2.5
+144,Rishi,Food Corner,Pizza,Mumbai,1152,72,4.3
+145,Priya,Royal Kitchen,Dessert,Mumbai,1432,47,2.9
+146,Vikas,Tasty Bites,Dessert,Delhi,209,57,2.9
+147,Neha,South Indian Cafe,Chinese,Mumbai,1814,36,3.7
+148,Aditya,Burger House,Chinese,Bangalore,748,27,3.7
+149,Aarav,Royal Kitchen,Indian,Mumbai,872,87,3.6
+150,Riya,Burger House,Pizza,Mumbai,1777,49,4.2
