@@ -1,0 +1,101 @@
+Order_ID,Customer_Name,Area,Food_Category,Order_Amount,Delivery_Time_Min,Rating,Payment_Method,Delivery_Partner
+1001,Amit,Saki Naka,Pizza,571,47,4.4,UPI,Rahul
+1002,Sneha,Andheri,Burger,357,53,4.9,Cash,Amit
+1003,Rahul,Ghatkopar,Biryani,387,41,4.0,Card,Vikas
+1004,Priya,Kurla,Chinese,670,27,3.6,UPI,Rohan
+1005,Neha,Powai,South Indian,671,31,3.9,Cash,Karan
+1006,Rohan,Saki Naka,Pizza,405,35,3.5,Card,Rahul
+1007,Pooja,Andheri,Burger,753,25,3.3,UPI,Amit
+1008,Karan,Ghatkopar,Biryani,549,59,4.6,Cash,Vikas
+1009,Anjali,Kurla,Chinese,309,49,4.6,Card,Rohan
+1010,Vikas,Powai,South Indian,299,60,4.9,UPI,Karan
+1011,Meera,Saki Naka,Pizza,749,41,3.3,Cash,Rahul
+1012,Arjun,Andheri,Burger,846,22,3.5,Card,Amit
+1013,Isha,Ghatkopar,Biryani,300,56,3.5,UPI,Vikas
+1014,Aditya,Kurla,Chinese,575,23,4.7,Cash,Rohan
+1015,Simran,Powai,South Indian,885,57,4.8,Card,Karan
+1016,Riya,Saki Naka,Pizza,799,52,3.2,UPI,Rahul
+1017,Akash,Andheri,Burger,256,38,3.4,Cash,Amit
+1018,Nisha,Ghatkopar,Biryani,419,57,3.4,Card,Vikas
+1019,Ravi,Kurla,Chinese,201,52,4.7,UPI,Rohan
+1020,Kavya,Powai,South Indian,353,44,4.0,Cash,Karan
+1021,Amit,Saki Naka,Pizza,576,41,4.8,Card,Rahul
+1022,Sneha,Andheri,Burger,557,28,4.8,UPI,Amit
+1023,Rahul,Ghatkopar,Biryani,780,51,3.2,Cash,Vikas
+1024,Priya,Kurla,Chinese,579,41,3.5,Card,Rohan
+1025,Neha,Powai,South Indian,509,53,4.1,UPI,Karan
+1026,Rohan,Saki Naka,Pizza,169,56,3.6,Cash,Rahul
+1027,Pooja,Andheri,Burger,604,26,3.9,Card,Amit
+1028,Karan,Ghatkopar,Biryani,731,46,4.6,UPI,Vikas
+1029,Anjali,Kurla,Chinese,757,28,4.0,Cash,Rohan
+1030,Vikas,Powai,South Indian,379,28,4.2,Card,Karan
+1031,Meera,Saki Naka,Pizza,802,38,3.2,UPI,Rahul
+1032,Arjun,Andheri,Burger,566,27,4.9,Cash,Amit
+1033,Isha,Ghatkopar,Biryani,212,36,3.2,Card,Vikas
+1034,Aditya,Kurla,Chinese,815,54,3.2,UPI,Rohan
+1035,Simran,Powai,South Indian,598,52,3.4,Cash,Karan
+1036,Riya,Saki Naka,Pizza,358,43,4.1,Card,Rahul
+1037,Akash,Andheri,Burger,610,51,3.9,UPI,Amit
+1038,Nisha,Ghatkopar,Biryani,180,47,4.5,Cash,Vikas
+1039,Ravi,Kurla,Chinese,183,22,3.2,Card,Rohan
+1040,Kavya,Powai,South Indian,302,58,4.3,UPI,Karan
+1041,Amit,Saki Naka,Pizza,557,53,4.7,Cash,Rahul
+1042,Sneha,Andheri,Burger,528,21,4.6,Card,Amit
+1043,Rahul,Ghatkopar,Biryani,506,52,3.9,UPI,Vikas
+1044,Priya,Kurla,Chinese,169,49,4.3,Cash,Rohan
+1045,Neha,Powai,South Indian,535,54,3.4,Card,Karan
+1046,Rohan,Saki Naka,Pizza,174,37,4.3,UPI,Rahul
+1047,Pooja,Andheri,Burger,630,43,3.6,Cash,Amit
+1048,Karan,Ghatkopar,Biryani,417,31,4.1,Card,Vikas
+1049,Anjali,Kurla,Chinese,773,39,3.8,UPI,Rohan
+1050,Vikas,Powai,South Indian,315,57,4.1,Cash,Karan
+1051,Meera,Saki Naka,Pizza,402,34,3.4,Card,Rahul
+1052,Arjun,Andheri,Burger,494,30,3.7,UPI,Amit
+1053,Isha,Ghatkopar,Biryani,209,46,4.0,Cash,Vikas
+1054,Aditya,Kurla,Chinese,569,25,3.6,Card,Rohan
+1055,Simran,Powai,South Indian,896,37,4.7,UPI,Karan
+1056,Riya,Saki Naka,Pizza,339,37,3.4,Cash,Rahul
+1057,Akash,Andheri,Burger,619,28,4.0,Card,Amit
+1058,Nisha,Ghatkopar,Biryani,809,49,4.7,UPI,Vikas
+1059,Ravi,Kurla,Chinese,678,23,4.5,Cash,Rohan
+1060,Kavya,Powai,South Indian,323,48,3.8,Card,Karan
+1061,Amit,Saki Naka,Pizza,452,34,4.6,UPI,Rahul
+1062,Sneha,Andheri,Burger,593,52,4.5,Cash,Amit
+1063,Rahul,Ghatkopar,Biryani,184,40,3.3,Card,Vikas
+1064,Priya,Kurla,Chinese,367,44,4.3,UPI,Rohan
+1065,Neha,Powai,South Indian,531,39,4.6,Cash,Karan
+1066,Rohan,Saki Naka,Pizza,641,59,3.8,Card,Rahul
+1067,Pooja,Andheri,Burger,358,29,4.0,UPI,Amit
+1068,Karan,Ghatkopar,Biryani,510,59,4.0,Cash,Vikas
+1069,Anjali,Kurla,Chinese,292,40,3.5,Card,Rohan
+1070,Vikas,Powai,South Indian,230,23,4.2,UPI,Karan
+1071,Meera,Saki Naka,Pizza,809,32,3.3,Cash,Rahul
+1072,Arjun,Andheri,Burger,891,41,4.8,Card,Amit
+1073,Isha,Ghatkopar,Biryani,756,40,4.1,UPI,Vikas
+1074,Aditya,Kurla,Chinese,296,27,4.0,Cash,Rohan
+1075,Simran,Powai,South Indian,433,24,4.2,Card,Karan
+1076,Riya,Saki Naka,Pizza,824,23,3.2,UPI,Rahul
+1077,Akash,Andheri,Burger,615,30,4.2,Cash,Amit
+1078,Nisha,Ghatkopar,Biryani,314,45,4.4,Card,Vikas
+1079,Ravi,Kurla,Chinese,246,26,3.5,UPI,Rohan
+1080,Kavya,Powai,South Indian,722,47,3.6,Cash,Karan
+1081,Amit,Saki Naka,Pizza,685,51,3.5,Card,Rahul
+1082,Sneha,Andheri,Burger,806,30,3.4,UPI,Amit
+1083,Rahul,Ghatkopar,Biryani,436,56,3.3,Cash,Vikas
+1084,Priya,Kurla,Chinese,527,60,3.7,Card,Rohan
+1085,Neha,Powai,South Indian,858,56,3.6,UPI,Karan
+1086,Rohan,Saki Naka,Pizza,785,42,3.3,Cash,Rahul
+1087,Pooja,Andheri,Burger,784,25,3.8,Card,Amit
+1088,Karan,Ghatkopar,Biryani,854,50,4.2,UPI,Vikas
+1089,Anjali,Kurla,Chinese,643,20,3.2,Cash,Rohan
+1090,Vikas,Powai,South Indian,231,47,3.6,Card,Karan
+1091,Meera,Saki Naka,Pizza,517,36,4.8,UPI,Rahul
+1092,Arjun,Andheri,Burger,574,30,3.2,Cash,Amit
+1093,Isha,Ghatkopar,Biryani,203,60,3.5,Card,Vikas
+1094,Aditya,Kurla,Chinese,488,41,3.6,UPI,Rohan
+1095,Simran,Powai,South Indian,385,38,4.2,Cash,Karan
+1096,Riya,Saki Naka,Pizza,753,25,4.5,Card,Rahul
+1097,Akash,Andheri,Burger,442,24,4.7,UPI,Amit
+1098,Nisha,Ghatkopar,Biryani,675,48,4.7,Cash,Vikas
+1099,Ravi,Kurla,Chinese,394,51,3.4,Card,Rohan
+1100,Kavya,Powai,South Indian,467,37,5.0,UPI,Karan

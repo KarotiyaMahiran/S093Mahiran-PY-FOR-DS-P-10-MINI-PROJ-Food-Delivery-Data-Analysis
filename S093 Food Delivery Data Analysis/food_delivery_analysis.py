@@ -1,661 +1,557 @@
-# ============================================================
-# MINI DATA SCIENCE PROJECT
-# FOOD DELIVERY DATA ANALYSIS AND DASHBOARD
-# S093 MAHIRAN KAROTIYA
-# ============================================================
-
-# ============================================================
-# PART 1 - IMPORT LIBRARIES
-# ============================================================
-
-import numpy as np
+import tkinter as tk
+from tkinter import ttk, messagebox
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import requests
-from bs4 import BeautifulSoup
+import os
 
-print("======================================================")
-print("       FOOD DELIVERY DATA ANALYSIS PROJECT")
-print("       S093 MAHIRAN KAROTIYA")
-print("======================================================")
+# ==============================
+# DATASET
+# ==============================
 
-
-# ============================================================
-# PART A - LOAD DATASET
-# ============================================================
-
-df = pd.read_csv("food_delivery.csv")
-
-print("\n========== DATASET LOADED ==========")
-print("Dataset loaded successfully.")
-
-
-# ============================================================
-# PART B - DATA LOADING AND EXPLORATION
-# ============================================================
-
-print("\n========== FIRST 5 RECORDS ==========")
-print(df.head())
-
-print("\n========== LAST 5 RECORDS ==========")
-print(df.tail())
-
-print("\n========== DATASET SHAPE ==========")
-print("Rows and Columns:", df.shape)
-
-print("\n========== COLUMN NAMES ==========")
-print(df.columns.tolist())
-
-print("\n========== DATA TYPES ==========")
-print(df.dtypes)
-
-print("\n========== STATISTICAL INFORMATION ==========")
-print(df.describe())
-
-print("\n========== MISSING VALUES ==========")
-print(df.isnull().sum())
-
-print("\n========== DUPLICATE RECORDS ==========")
-print(df.duplicated().sum())
-
-
-# ============================================================
-# PART C - DATA CLEANING
-# ============================================================
-
-print("\n========== DATA CLEANING ==========")
-
-# Remove duplicate records
-df = df.drop_duplicates()
-
-# Remove spaces from column names
-df.columns = df.columns.str.strip()
-
-# Handle missing values
-df["Order_Value"] = df["Order_Value"].fillna(
-    df["Order_Value"].mean()
+file_path = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "food_delivery_dataset.csv"
 )
 
-df["Delivery_Time"] = df["Delivery_Time"].fillna(
-    df["Delivery_Time"].mean()
-)
-
-df["Rating"] = df["Rating"].fillna(
-    df["Rating"].mean()
-)
-
-print("Duplicate records removed.")
-print("Column names cleaned.")
-print("Missing values handled.")
-
-print("\nMissing Values After Cleaning:")
-print(df.isnull().sum())
-
-
-# ============================================================
-# PART D - DATA ANALYSIS USING NUMPY AND PANDAS
-# ============================================================
-
-print("\n========== DATA ANALYSIS ==========")
-
-
-# 1. Total Orders
-total_orders = df["Order_ID"].count()
-
-print("\n1. Total Orders:", total_orders)
-
-
-# 2. Total Order Value
-total_sales = np.sum(df["Order_Value"])
-
-print("2. Total Order Value: ₹", round(total_sales, 2))
-
-
-# 3. Average Order Value
-average_order = np.mean(df["Order_Value"])
-
-print("3. Average Order Value: ₹", round(average_order, 2))
-
-
-# 4. Highest Order Value
-maximum_order = np.max(df["Order_Value"])
-
-print("4. Highest Order Value: ₹", maximum_order)
-
-
-# 5. Lowest Order Value
-minimum_order = np.min(df["Order_Value"])
-
-print("5. Lowest Order Value: ₹", minimum_order)
-
-
-# 6. Median Order Value
-median_order = np.median(df["Order_Value"])
-
-print("6. Median Order Value: ₹", median_order)
-
-
-# 7. Average Delivery Time
-average_delivery = np.mean(df["Delivery_Time"])
-
-print(
-    "7. Average Delivery Time:",
-    round(average_delivery, 2),
-    "minutes"
-)
-
-
-# 8. Average Customer Rating
-average_rating = np.mean(df["Rating"])
-
-print(
-    "8. Average Customer Rating:",
-    round(average_rating, 2)
-)
-
-
-# 9. Most Popular Food Category
-category_counts = df["Food_Category"].value_counts()
-
-popular_category = category_counts.idxmax()
-
-print(
-    "9. Most Popular Food Category:",
-    popular_category
-)
-
-
-# 10. Best Rated Restaurant
-restaurant_rating = df.groupby(
-    "Restaurant"
-)["Rating"].mean()
-
-best_restaurant = restaurant_rating.idxmax()
-
-print(
-    "10. Best Rated Restaurant:",
-    best_restaurant
-)
-
-print(
-    "    Average Rating:",
-    round(restaurant_rating.max(), 2)
-)
-
-
-# ============================================================
-# CATEGORY-WISE SALES
-# ============================================================
-
-category_sales = df.groupby(
-    "Food_Category"
-)["Order_Value"].sum()
-
-print("\n========== CATEGORY-WISE SALES ==========")
-print(category_sales)
-
-
-# ============================================================
-# CITY-WISE ORDERS
-# ============================================================
-
-city_orders = df["City"].value_counts()
-
-print("\n========== CITY-WISE ORDERS ==========")
-print(city_orders)
-
-
-# ============================================================
-# RESTAURANT-WISE SALES
-# ============================================================
-
-restaurant_sales = df.groupby(
-    "Restaurant"
-)["Order_Value"].sum()
-
-restaurant_sales = restaurant_sales.sort_values(
-    ascending=False
-)
-
-print("\n========== RESTAURANT-WISE SALES ==========")
-print(restaurant_sales)
-
-
-# ============================================================
-# PART E - DATA VISUALIZATION
-# ============================================================
-
-print("\n========== DATA VISUALIZATION ==========")
-
-
-# ------------------------------------------------------------
-# GRAPH 1 - FOOD CATEGORY-WISE SALES
-# ------------------------------------------------------------
-
-plt.figure(figsize=(8, 5))
-
-category_sales.plot(kind="bar")
-
-plt.title("Food Category-wise Sales")
-plt.xlabel("Food Category")
-plt.ylabel("Total Order Value")
-plt.xticks(rotation=45)
-
-plt.tight_layout()
-plt.show()
-
-
-# ------------------------------------------------------------
-# GRAPH 2 - ORDERS BY CITY
-# ------------------------------------------------------------
-
-plt.figure(figsize=(7, 7))
-
-plt.pie(
-    city_orders,
-    labels=city_orders.index,
-    autopct="%1.1f%%"
-)
-
-plt.title("Orders by City")
-
-plt.show()
-
-
-# ------------------------------------------------------------
-# GRAPH 3 - ORDER VALUE DISTRIBUTION
-# ------------------------------------------------------------
-
-plt.figure(figsize=(8, 5))
-
-plt.hist(
-    df["Order_Value"],
-    bins=10
-)
-
-plt.title("Order Value Distribution")
-plt.xlabel("Order Value")
-plt.ylabel("Frequency")
-
-plt.tight_layout()
-plt.show()
-
-
-# ------------------------------------------------------------
-# GRAPH 4 - DELIVERY TIME VS CUSTOMER RATING
-# ------------------------------------------------------------
-
-plt.figure(figsize=(8, 5))
-
-sns.scatterplot(
-    x="Delivery_Time",
-    y="Rating",
-    data=df
-)
-
-plt.title("Delivery Time vs Customer Rating")
-plt.xlabel("Delivery Time (Minutes)")
-plt.ylabel("Customer Rating")
-
-plt.tight_layout()
-plt.show()
-
-
-# ------------------------------------------------------------
-# GRAPH 5 - ORDER VALUE BY FOOD CATEGORY
-# ------------------------------------------------------------
-
-plt.figure(figsize=(9, 5))
-
-sns.boxplot(
-    x="Food_Category",
-    y="Order_Value",
-    data=df
-)
-
-plt.title("Order Value by Food Category")
-plt.xlabel("Food Category")
-plt.ylabel("Order Value")
-plt.xticks(rotation=45)
-
-plt.tight_layout()
-plt.show()
-
-
-# ------------------------------------------------------------
-# GRAPH 6 - RESTAURANT-WISE SALES
-# ------------------------------------------------------------
-
-plt.figure(figsize=(9, 5))
-
-restaurant_sales.plot(kind="bar")
-
-plt.title("Restaurant-wise Sales")
-plt.xlabel("Restaurant")
-plt.ylabel("Total Order Value")
-plt.xticks(rotation=45)
-
-plt.tight_layout()
-plt.show()
-
-
-print("\nAll 6 visualizations created successfully.")
-
-
-# ============================================================
-# PART F - BEAUTIFUL SOUP WEB DATA COLLECTION
-# ============================================================
-
-print("\n========== BEAUTIFUL SOUP ==========")
-
-url = "https://quotes.toscrape.com/"
-
-try:
-
-    response = requests.get(
-        url,
-        timeout=10
+df = pd.read_csv(file_path)
+
+
+# ==============================
+# COLORS
+# ==============================
+
+BG = "#0b0f19"
+CARD = "#151b29"
+CARD2 = "#1c2434"
+TEXT = "#f5f7ff"
+MUTED = "#8e99ad"
+ACCENT = "#00e5ff"
+PURPLE = "#8b5cf6"
+GREEN = "#22c55e"
+ORANGE = "#f59e0b"
+RED = "#ef4444"
+
+
+# ==============================
+# FUNCTIONS
+# ==============================
+
+def clear_content():
+    for widget in content_frame.winfo_children():
+        widget.destroy()
+
+
+def create_card(parent, title, value, subtitle, accent):
+    card = tk.Frame(
+        parent,
+        bg=CARD,
+        highlightbackground="#263044",
+        highlightthickness=1
+    )
+    card.pack(side="left", fill="both", expand=True, padx=8)
+
+    tk.Label(
+        card,
+        text=title,
+        font=("Segoe UI", 10),
+        bg=CARD,
+        fg=MUTED
+    ).pack(anchor="w", padx=20, pady=(18, 3))
+
+    tk.Label(
+        card,
+        text=value,
+        font=("Segoe UI", 24, "bold"),
+        bg=CARD,
+        fg=accent
+    ).pack(anchor="w", padx=20)
+
+    tk.Label(
+        card,
+        text=subtitle,
+        font=("Segoe UI", 9),
+        bg=CARD,
+        fg=MUTED
+    ).pack(anchor="w", padx=20, pady=(2, 18))
+
+    return card
+
+
+def show_summary():
+    clear_content()
+
+    tk.Label(
+        content_frame,
+        text="Dashboard Overview",
+        font=("Segoe UI", 25, "bold"),
+        bg=BG,
+        fg=TEXT
+    ).pack(anchor="w", pady=(5, 20))
+
+    cards = tk.Frame(content_frame, bg=BG)
+    cards.pack(fill="x")
+
+    create_card(
+        cards,
+        "TOTAL ORDERS",
+        f"{len(df)}",
+        "Orders analyzed",
+        ACCENT
     )
 
-    soup = BeautifulSoup(
-        response.text,
-        "html.parser"
+    create_card(
+        cards,
+        "TOTAL SALES",
+        f"₹{df['Order_Amount'].sum():,.0f}",
+        "Overall revenue",
+        GREEN
     )
 
-    print("\nWebsite Title:")
-    print(soup.title.text)
-
-    print("\nSample Public Web Data:")
-
-    quotes = soup.find_all(
-        "span",
-        class_="text"
+    create_card(
+        cards,
+        "AVERAGE ORDER",
+        f"₹{df['Order_Amount'].mean():,.0f}",
+        "Average order value",
+        PURPLE
     )
 
-    for i, quote in enumerate(
-        quotes[:5],
-        start=1
-    ):
-        print(
-            i,
-            ".",
-            quote.text
+    create_card(
+        cards,
+        "AVG RATING",
+        f"{df['Rating'].mean():.2f} ⭐",
+        "Customer satisfaction",
+        ORANGE
+    )
+
+    info = tk.Frame(
+        content_frame,
+        bg=CARD,
+        highlightbackground="#263044",
+        highlightthickness=1
+    )
+    info.pack(fill="both", expand=True, pady=25)
+
+    tk.Label(
+        info,
+        text="QUICK INSIGHTS",
+        font=("Segoe UI", 13, "bold"),
+        bg=CARD,
+        fg=ACCENT
+    ).pack(anchor="w", padx=25, pady=(20, 10))
+
+    insights = [
+        f"• Highest order value: ₹{df['Order_Amount'].max():,.0f}",
+        f"• Lowest order value: ₹{df['Order_Amount'].min():,.0f}",
+        f"• Average delivery time: {df['Delivery_Time_Min'].mean():.1f} minutes",
+        f"• Most popular category: {df['Food_Category'].value_counts().idxmax()}",
+        f"• Most used payment method: {df['Payment_Method'].value_counts().idxmax()}",
+    ]
+
+    for item in insights:
+        tk.Label(
+            info,
+            text=item,
+            font=("Segoe UI", 11),
+            bg=CARD,
+            fg=TEXT
+        ).pack(anchor="w", padx=30, pady=7)
+
+
+def show_dataset():
+    clear_content()
+
+    tk.Label(
+        content_frame,
+        text="Dataset Explorer",
+        font=("Segoe UI", 25, "bold"),
+        bg=BG,
+        fg=TEXT
+    ).pack(anchor="w", pady=(5, 15))
+
+    table_frame = tk.Frame(content_frame, bg=CARD)
+    table_frame.pack(fill="both", expand=True)
+
+    columns = list(df.columns)
+
+    tree = ttk.Treeview(
+        table_frame,
+        columns=columns,
+        show="headings"
+    )
+
+    for col in columns:
+        tree.heading(col, text=col)
+        tree.column(col, width=130, anchor="center")
+
+    for _, row in df.iterrows():
+        tree.insert("", "end", values=list(row))
+
+    scrollbar_y = ttk.Scrollbar(
+        table_frame,
+        orient="vertical",
+        command=tree.yview
+    )
+
+    scrollbar_x = ttk.Scrollbar(
+        table_frame,
+        orient="horizontal",
+        command=tree.xview
+    )
+
+    tree.configure(
+        yscrollcommand=scrollbar_y.set,
+        xscrollcommand=scrollbar_x.set
+    )
+
+    scrollbar_y.pack(side="right", fill="y")
+    scrollbar_x.pack(side="bottom", fill="x")
+    tree.pack(fill="both", expand=True)
+
+
+def category_sales():
+    data = df.groupby("Food_Category")["Order_Amount"].sum().sort_values(
+        ascending=False
+    )
+
+    plt.figure(figsize=(10, 6))
+    sns.barplot(
+        x=data.index,
+        y=data.values
+    )
+
+    plt.title("Food Category Sales")
+    plt.xlabel("Food Category")
+    plt.ylabel("Total Sales")
+    plt.xticks(rotation=30)
+    plt.tight_layout()
+    plt.show()
+
+
+def area_orders():
+    data = df["Area"].value_counts()
+
+    plt.figure(figsize=(10, 6))
+    data.plot(kind="bar")
+
+    plt.title("Orders by Area")
+    plt.xlabel("Area")
+    plt.ylabel("Number of Orders")
+    plt.xticks(rotation=30)
+    plt.tight_layout()
+    plt.show()
+
+
+def payment_analysis():
+    data = df["Payment_Method"].value_counts()
+
+    plt.figure(figsize=(8, 6))
+    plt.pie(
+        data.values,
+        labels=data.index,
+        autopct="%1.1f%%",
+        startangle=90
+    )
+
+    plt.title("Payment Method Distribution")
+    plt.tight_layout()
+    plt.show()
+
+
+def delivery_analysis():
+    plt.figure(figsize=(10, 6))
+
+    sns.histplot(
+        df["Delivery_Time_Min"],
+        bins=10,
+        kde=True
+    )
+
+    plt.title("Delivery Time Distribution")
+    plt.xlabel("Delivery Time (Minutes)")
+    plt.ylabel("Number of Orders")
+    plt.tight_layout()
+    plt.show()
+
+
+def rating_analysis():
+    plt.figure(figsize=(10, 6))
+
+    sns.countplot(
+        x=df["Rating"]
+    )
+
+    plt.title("Customer Rating Distribution")
+    plt.xlabel("Rating")
+    plt.ylabel("Number of Customers")
+    plt.tight_layout()
+    plt.show()
+
+
+def show_findings():
+    clear_content()
+
+    tk.Label(
+        content_frame,
+        text="Key Findings",
+        font=("Segoe UI", 25, "bold"),
+        bg=BG,
+        fg=TEXT
+    ).pack(anchor="w", pady=(5, 20))
+
+    findings = [
+        f"The dataset contains {len(df)} food delivery orders.",
+        f"Total sales generated are ₹{df['Order_Amount'].sum():,.0f}.",
+        f"The average order amount is ₹{df['Order_Amount'].mean():,.2f}.",
+        f"The average delivery time is {df['Delivery_Time_Min'].mean():.1f} minutes.",
+        f"The most ordered food category is {df['Food_Category'].value_counts().idxmax()}.",
+        f"The most frequently used payment method is {df['Payment_Method'].value_counts().idxmax()}.",
+        f"The average customer rating is {df['Rating'].mean():.2f} out of 5.",
+        f"The highest order value is ₹{df['Order_Amount'].max():,.0f}."
+    ]
+
+    for i, finding in enumerate(findings, 1):
+
+        card = tk.Frame(
+            content_frame,
+            bg=CARD,
+            highlightbackground="#263044",
+            highlightthickness=1
         )
+        card.pack(fill="x", pady=6)
 
-    print(
-        "\nBeautiful Soup data collection completed."
+        tk.Label(
+            card,
+            text=f"{i:02d}",
+            font=("Segoe UI", 13, "bold"),
+            bg=CARD,
+            fg=ACCENT
+        ).pack(side="left", padx=20, pady=15)
+
+        tk.Label(
+            card,
+            text=finding,
+            font=("Segoe UI", 11),
+            bg=CARD,
+            fg=TEXT
+        ).pack(side="left", pady=15)
+
+
+# ==============================
+# MAIN WINDOW
+# ==============================
+
+root = tk.Tk()
+
+root.title("Food Delivery Analytics | S093 Mahiran Karotiya")
+root.geometry("1250x750")
+root.minsize(1050, 650)
+root.configure(bg=BG)
+
+
+# ==============================
+# STYLE
+# ==============================
+
+style = ttk.Style()
+style.theme_use("clam")
+
+style.configure(
+    "Treeview",
+    background=CARD,
+    foreground=TEXT,
+    fieldbackground=CARD,
+    rowheight=32,
+    borderwidth=0
+)
+
+style.configure(
+    "Treeview.Heading",
+    background=CARD2,
+    foreground=ACCENT,
+    font=("Segoe UI", 10, "bold")
+)
+
+
+# ==============================
+# SIDEBAR
+# ==============================
+
+sidebar = tk.Frame(
+    root,
+    bg="#0f1420",
+    width=240
+)
+
+sidebar.pack(
+    side="left",
+    fill="y"
+)
+
+sidebar.pack_propagate(False)
+
+
+tk.Label(
+    sidebar,
+    text="FOOD",
+    font=("Segoe UI", 24, "bold"),
+    bg="#0f1420",
+    fg=TEXT
+).pack(anchor="w", padx=25, pady=(35, 0))
+
+tk.Label(
+    sidebar,
+    text="ANALYTICS",
+    font=("Segoe UI", 12, "bold"),
+    bg="#0f1420",
+    fg=ACCENT
+).pack(anchor="w", padx=27)
+
+tk.Label(
+    sidebar,
+    text="DATA SCIENCE PROJECT",
+    font=("Segoe UI", 8),
+    bg="#0f1420",
+    fg=MUTED
+).pack(anchor="w", padx=27, pady=(3, 35))
+
+
+def side_button(text, command):
+    btn = tk.Button(
+        sidebar,
+        text=text,
+        command=command,
+        font=("Segoe UI", 10, "bold"),
+        bg="#0f1420",
+        fg="#b9c2d0",
+        activebackground="#1d2738",
+        activeforeground=ACCENT,
+        bd=0,
+        relief="flat",
+        anchor="w",
+        padx=27,
+        pady=13,
+        cursor="hand2"
     )
 
-except Exception as e:
+    btn.pack(fill="x", pady=1)
 
-    print(
-        "\nWeb data collection failed."
-    )
-
-    print(
-        "Error:",
-        e
-    )
+    return btn
 
 
-# ============================================================
-# PART G - DASHBOARD
-# ============================================================
-
-print("\n========== CREATING DASHBOARD ==========")
-
-
-# Dashboard calculations
-total_orders = len(df)
-
-total_sales = df["Order_Value"].sum()
-
-average_order = df["Order_Value"].mean()
-
-average_delivery = df["Delivery_Time"].mean()
-
-average_rating = df["Rating"].mean()
-
-category_sales = df.groupby(
-    "Food_Category"
-)["Order_Value"].sum()
-
-city_orders = df["City"].value_counts()
+side_button("▣   Dashboard", show_summary)
+side_button("▤   Dataset", show_dataset)
+side_button("◈   Category Sales", category_sales)
+side_button("◉   Orders by Area", area_orders)
+side_button("●   Payment Methods", payment_analysis)
+side_button("◷   Delivery Time", delivery_analysis)
+side_button("★   Customer Ratings", rating_analysis)
+side_button("◆   Key Findings", show_findings)
 
 
-# Create dashboard
-fig = plt.figure(
-    figsize=(16, 10)
+# ==============================
+# FOOTER
+# ==============================
+
+footer = tk.Frame(
+    sidebar,
+    bg="#0f1420"
 )
 
-fig.suptitle(
-    "FOOD DELIVERY DATA ANALYSIS DASHBOARD",
-    fontsize=22,
-    fontweight="bold"
+footer.pack(
+    side="bottom",
+    fill="x",
+    pady=20
 )
 
+tk.Label(
+    footer,
+    text="S093",
+    font=("Segoe UI", 10, "bold"),
+    bg="#0f1420",
+    fg=ACCENT
+).pack()
 
-# ------------------------------------------------------------
-# DASHBOARD SUMMARY
-# ------------------------------------------------------------
+tk.Label(
+    footer,
+    text="Mahiran Karotiya",
+    font=("Segoe UI", 10, "bold"),
+    bg="#0f1420",
+    fg=TEXT
+).pack()
 
-fig.text(
-    0.15,
-    0.90,
-    f"TOTAL ORDERS\n{total_orders}",
-    ha="center",
-    fontsize=16,
-    fontweight="bold"
+tk.Label(
+    footer,
+    text="SY B.Sc. Computer Science",
+    font=("Segoe UI", 8),
+    bg="#0f1420",
+    fg=MUTED
+).pack(pady=(3, 0))
+
+
+# ==============================
+# CONTENT
+# ==============================
+
+main = tk.Frame(
+    root,
+    bg=BG
 )
 
-fig.text(
-    0.35,
-    0.90,
-    f"TOTAL SALES\n₹{total_sales:,.0f}",
-    ha="center",
-    fontsize=16,
-    fontweight="bold"
-)
-
-fig.text(
-    0.55,
-    0.90,
-    f"AVG ORDER VALUE\n₹{average_order:,.0f}",
-    ha="center",
-    fontsize=16,
-    fontweight="bold"
-)
-
-fig.text(
-    0.75,
-    0.90,
-    f"AVG DELIVERY\n{average_delivery:.1f} MIN",
-    ha="center",
-    fontsize=16,
-    fontweight="bold"
+main.pack(
+    side="left",
+    fill="both",
+    expand=True
 )
 
 
-# ------------------------------------------------------------
-# DASHBOARD CHART 1
-# ------------------------------------------------------------
+# TOP BAR
 
-ax1 = fig.add_axes(
-    [0.07, 0.50, 0.40, 0.30]
+topbar = tk.Frame(
+    main,
+    bg=BG,
+    height=80
 )
 
-category_sales.plot(
-    kind="bar",
-    ax=ax1
+topbar.pack(
+    fill="x",
+    padx=35,
+    pady=(25, 0)
 )
 
-ax1.set_title(
-    "Sales by Food Category"
+tk.Label(
+    topbar,
+    text="FOOD DELIVERY",
+    font=("Segoe UI", 11, "bold"),
+    bg=BG,
+    fg=ACCENT
+).pack(anchor="w")
+
+tk.Label(
+    topbar,
+    text="Analytics Dashboard",
+    font=("Segoe UI", 28, "bold"),
+    bg=BG,
+    fg=TEXT
+).pack(anchor="w")
+
+
+content_frame = tk.Frame(
+    main,
+    bg=BG
 )
 
-ax1.set_xlabel(
-    "Food Category"
-)
-
-ax1.set_ylabel(
-    "Order Value"
-)
-
-ax1.tick_params(
-    axis="x",
-    rotation=45
-)
-
-
-# ------------------------------------------------------------
-# DASHBOARD CHART 2
-# ------------------------------------------------------------
-
-ax2 = fig.add_axes(
-    [0.55, 0.50, 0.35, 0.30]
-)
-
-ax2.pie(
-    city_orders,
-    labels=city_orders.index,
-    autopct="%1.1f%%"
-)
-
-ax2.set_title(
-    "Orders by City"
+content_frame.pack(
+    fill="both",
+    expand=True,
+    padx=35,
+    pady=15
 )
 
 
-# ------------------------------------------------------------
-# DASHBOARD CHART 3
-# ------------------------------------------------------------
+# START WITH DASHBOARD
 
-ax3 = fig.add_axes(
-    [0.07, 0.12, 0.40, 0.28]
-)
+show_summary()
 
-ax3.hist(
-    df["Order_Value"],
-    bins=10
-)
-
-ax3.set_title(
-    "Order Value Distribution"
-)
-
-ax3.set_xlabel(
-    "Order Value"
-)
-
-ax3.set_ylabel(
-    "Frequency"
-)
-
-
-# ------------------------------------------------------------
-# DASHBOARD CHART 4
-# ------------------------------------------------------------
-
-ax4 = fig.add_axes(
-    [0.55, 0.12, 0.35, 0.28]
-)
-
-sns.scatterplot(
-    x="Delivery_Time",
-    y="Rating",
-    data=df,
-    ax=ax4
-)
-
-ax4.set_title(
-    "Delivery Time vs Rating"
-)
-
-ax4.set_xlabel(
-    "Delivery Time (Minutes)"
-)
-
-ax4.set_ylabel(
-    "Customer Rating"
-)
-
-
-# ------------------------------------------------------------
-# SAVE DASHBOARD
-# ------------------------------------------------------------
-
-plt.savefig(
-    "dashboard.png",
-    dpi=300,
-    bbox_inches="tight"
-)
-
-plt.show()
-
-print("\nDashboard created successfully!")
-
-print(
-    "Dashboard saved as: dashboard.png"
-)
-
-
-# ============================================================
-# PART H - KEY FINDINGS
-# ============================================================
-
-print("\n==============================================")
-print("                 KEY FINDINGS")
-print("==============================================")
-
-
-# Finding 1
-print(
-    "1. Most popular food category:",
-    df["Food_Category"].value_counts().idxmax()
-)
-
-
-# Finding 2
-print(
-    "2. City with highest number of orders:",
-    df["City"].value_counts().idxmax()
-)
-
-
-# Finding 3
-print(
-    "3. Highest order value: ₹",
-    df["Order_Value"].max()
-)
-
-
-# Finding 4
-print(
-    "4. Average delivery time:",
-    round(
-        df["Delivery_Time"].mean(),
-        2
-    ),
-    "minutes"
-)
-
-
-# Finding 5
-print(
-    "5. Average customer rating:",
-    round(
-        df["Rating"].mean(),
-        2
-    )
-)
-
-
-# ============================================================
-# PROJECT COMPLETED
-# ============================================================
-
-print("\n==============================================")
-print("          PROJECT ANALYSIS COMPLETED")
-print("          S093 MAHIRAN KAROTIYA")
-print("==============================================")
+root.mainloop()
